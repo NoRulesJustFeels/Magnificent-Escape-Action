@@ -1,0 +1,26 @@
+# [START app_yaml]
+runtime: nodejs
+env: flex
+automatic_scaling:
+  min_num_instances: 1
+  max_num_instances: 5
+  cool_down_period_sec: 480
+resources:
+  memory_gb: 2
+env_variables:
+  NODE_ENV: 'production'
+  PROJECT: 'YOUR_PROJECT_ID'
+  FULFILLMENT_URL: 'https://YOUR_PROJECT_ID.appspot.com'
+  GOOGLE_ANALYTICS_TRACKING_ID: UA-XXXXXXX-XX
+  DEBUG: 'actions-on-google:info'
+  TEST: 'false'
+  CHATBASE_KEY: 'CHATBASE_KEY'
+skip_files:
+- ^\.git$
+- ^.*node_modules(/.*)?
+handlers:
+- url: .*
+  script: app.js
+  redirect_http_response_code: 301
+  secure: always
+# [END app_yaml]
