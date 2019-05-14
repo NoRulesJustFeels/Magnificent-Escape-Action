@@ -1045,7 +1045,7 @@ const handleLookAround = (conv) => {
     if (game.ROOMS[conv.data.currentRoom]) {
       const items = [];
       conv.user.storage.rooms[conv.data.currentRoom].foundItems.forEach((item) => {
-        if (!DEFAULT_ITEMS.includes(item) && !game.MORE_TIME.includes(item)) {
+        if (!game.DEFAULT_ITEMS.includes(item) && !game.MORE_TIME.includes(item)) {
           if (game.VOWELS.indexOf(item.charAt(0)) === -1) {
             if (item.endsWith('s')) {
               items.push(`${item}`);
